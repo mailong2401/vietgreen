@@ -1,0 +1,6 @@
+export { default as HeroSection } from './HeroSection'
+export { default as ProblemsSection } from './ProblemsSection'
+export { default as TargetUsers } from './TargetUsers'
+export { default as CoreModules } from './CoreModules'
+export { default as Architecture } from './Architecture'
+export { default as CTASection } from './CTASection'
