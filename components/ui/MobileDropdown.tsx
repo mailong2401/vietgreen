@@ -8,13 +8,11 @@ import { ChevronDown } from 'lucide-react'
 interface DropdownItem {
   href: string
   label: string
-  icon: React.ElementType
 }
 
 interface MobileDropdownProps {
   href: string
   label: string
-  icon: React.ElementType
   dropdown?: DropdownItem[]
   onClose: () => void
 }
@@ -48,7 +46,6 @@ export default function MobileDropdown({
           }
         }}
       >
-        <Icon size={18} />
         <span className="flex-1">{label}</span>
         {hasDropdown && (
           <ChevronDown 
@@ -62,7 +59,6 @@ export default function MobileDropdown({
       {hasDropdown && isOpen && (
         <div className="ml-6 mt-1 space-y-1 border-l-2 border-primary/20 pl-4">
           {dropdown.map((item) => {
-            const ItemIcon = item.icon
             const isItemActive = isActive(item.href)
             return (
               <Link
@@ -78,7 +74,6 @@ export default function MobileDropdown({
                     : 'text-foreground/60 hover:bg-primary/10 hover:text-primary'
                 }`}
               >
-                <ItemIcon size={16} />
                 <span className="text-sm">{item.label}</span>
               </Link>
             )
