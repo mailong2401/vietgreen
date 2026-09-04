@@ -20,7 +20,6 @@ interface MobileDropdownProps {
 export default function MobileDropdown({
   href,
   label,
-  icon: Icon,
   dropdown,
   onClose,
 }: MobileDropdownProps) {
