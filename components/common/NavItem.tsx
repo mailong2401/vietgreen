@@ -9,13 +9,11 @@ import DropdownMenu from '@/components/ui/DropdownMenu'
 interface DropdownItem {
   href: string
   label: string
-  icon: React.ElementType
 }
 
 interface NavItemProps {
   href: string
   label: string
-  icon: React.ElementType
   dropdown?: DropdownItem[]
   isOpen: boolean
   onOpen: () => void
@@ -25,7 +23,6 @@ interface NavItemProps {
 export default function NavItem({
   href,
   label,
-  icon: Icon,
   dropdown,
   isOpen,
   onOpen,
@@ -92,7 +89,6 @@ export default function NavItem({
             : 'border-transparent text-foreground/70 hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
         }`}
       >
-        <Icon size={16} />
         <span className="whitespace-nowrap">{label}</span>
         {hasDropdown && (
           <ChevronDown 

@@ -7,7 +7,6 @@ import { ChevronRight } from 'lucide-react'
 interface DropdownItem {
   href: string
   label: string
-  icon: React.ElementType
 }
 
 interface DropdownMenuProps {
@@ -35,7 +34,6 @@ export default function DropdownMenu({
       transition-all ease-out
       ${className}`}>
       {items.map((item) => {
-        const ItemIcon = item.icon
         const isItemActive = isActive(item.href)
         return (
           <Link
@@ -48,7 +46,6 @@ export default function DropdownMenu({
               }`}
             onClick={onClose}
           >
-            <ItemIcon size={16} className="flex-shrink-0" />
             <span className="whitespace-nowrap">{item.label}</span>
             {isItemActive && (
               <ChevronRight size={14} className="ml-auto text-primary" />

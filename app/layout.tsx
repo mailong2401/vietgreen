@@ -3,12 +3,13 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import Header from '@/components/common/Header'
+import Chatbot from '@/components/ui/Chatbot'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'One Dark App',
-  description: 'Application with One Dark theme',
+  title: 'VietGreen',
+  description: 'Vietnam Green Production & Consumption Intelligence Platform',
 }
 
 export default function RootLayout({
@@ -21,9 +22,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Header />
-          <main className="pt-24 min-h-screen">
+          <main className="min-h-screen">
             {children}
           </main>
+          <Chatbot />
         </Providers>
       </body>
     </html>

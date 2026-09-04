@@ -86,9 +86,9 @@ export default function Header() {
       label: 'nghiên cứu', 
       icon: GraduationCap,
       dropdown: [
-        { href: '/nghien-cuu/tai-lieu', label: 'Tài liệu', icon: Package },
-        { href: '/nghien-cuu/du-an', label: 'Dự án', icon: Target },
-        { href: '/nghien-cuu/hop-tac', label: 'Hợp tác', icon: Building2 },
+        { href: '/nghien-cuu/tai-lieu', label: 'Tài liệu'  },
+        { href: '/nghien-cuu/du-an', label: 'Dự án'  },
+        { href: '/nghien-cuu/hop-tac', label: 'Hợp tác'  },
       ]
     },
     { 
@@ -133,7 +133,6 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 label={link.label}
-                icon={link.icon}
                 dropdown={link.dropdown}
                 isOpen={openDropdown === link.href}
                 onOpen={() => setOpenDropdown(link.href)}
