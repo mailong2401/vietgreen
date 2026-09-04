@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: oklch(0.9524 0.0131 71.33);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.508 0.118 165.612);
+  --primary-foreground: oklch(0.979 0.021 166.113);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.145 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.2882 0.0221 277.51);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.432 0.095 166.913);
+  --primary-foreground: oklch(0.979 0.021 166.113);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.985 0 0);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+  }
+
+  html {
+    font-family: system-ui, -apple-system, sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Playful Animations */
+@layer utilities {
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes float-up-down {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 1.5s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
+  }
+  
+  .animate-gradient {
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .animate-float {
+    animation: float-up-down 3s ease-in-out infinite;
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+
+  /* Shadow utilities */
+  .shadow-border-sm {
+    box-shadow: 2px 2px 0px var(--foreground);
+  }
+  
+  .shadow-border-md {
+    box-shadow: 4px 4px 0px var(--foreground);
+  }
+  
+  .shadow-border-lg {
+    box-shadow: 6px 6px 0px var(--foreground);
+  }
+  
+  .shadow-border-xl {
+    box-shadow: 8px 8px 0px var(--foreground);
+  }
+  
+  .shadow-primary-sm {
+    box-shadow: 2px 2px 0px var(--primary);
+  }
+  
+  .shadow-primary-md {
+    box-shadow: 4px 4px 0px var(--primary);
+  }
+  
+  .shadow-primary-lg {
+    box-shadow: 6px 6px 0px var(--primary);
+  }
+  
+  .shadow-primary-xl {
+    box-shadow: 8px 8px 0px var(--primary);
+  }
+
+  /* Playful button variations */
+  .btn-playful {
+    background: linear-gradient(to right, var(--primary), #6aa34a);
+    color: var(--primary-foreground);
+    border: 2px solid var(--primary);
+    box-shadow: 4px 4px 0px var(--primary);
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-playful:hover {
+    box-shadow: 6px 6px 0px var(--primary);
+    transform: translate(-2px, -2px);
+    filter: brightness(1.1);
+  }
+  
+  .btn-playful:active {
+    box-shadow: 2px 2px 0px var(--primary);
+    transform: translate(2px, 2px);
+  }
+
+  .btn-rainbow {
+    background: linear-gradient(to right, #f472b6, #a78bfa, #60a5fa, #34d399, #fbbf24);
+    background-size: 200% 100%;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  .btn-rainbow:hover {
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(-2px, -2px);
+    background-position: 100% 0;
+  }
+  
+  .btn-rainbow:active {
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+  }
+}
+
+/* Custom scrollbar */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.4 0.1 165);
+  }
 }
