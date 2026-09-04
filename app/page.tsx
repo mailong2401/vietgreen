@@ -66,7 +66,7 @@ export default function HomePage() {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="playful" size="lg" icon={<Leaf size={20} />}>
+              <Button variant="primary" size="lg" icon={<Leaf size={20} />}>
                 Khám phá ngay
               </Button>
               <Button variant="outline" size="lg" icon={<BarChart3 size={20} />}>
@@ -377,7 +377,7 @@ export default function HomePage() {
             Cùng VietGreen xây dựng nền tảng dữ liệu thông minh cho sản xuất và tiêu dùng bền vững
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="playful" size="lg" icon={<Globe size={20} />}>
+            <Button variant="primary" size="lg" icon={<Globe size={20} />}>
               Khám phá nền tảng
             </Button>
             <Button variant="outline" size="lg" icon={<Users size={20} />}>
