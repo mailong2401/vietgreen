@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { useTheme } from 'next-themes'
 import { 
@@ -11,9 +12,7 @@ import {
   LogOut,
   Moon,
   Sun,
-  Leaf,
   Search,
-  Sparkles,
   Briefcase,
   GraduationCap,
   Building2,
@@ -74,7 +73,7 @@ export default function Header() {
     },
     { 
       href: '/khach-hang', 
-      label: 'Dành cho khách hàng', 
+      label: 'khách hàng', 
       icon: UserCircle,
       dropdown: [
         { href: '/khach-hang/san-pham', label: 'Sản phẩm', icon: Package },
@@ -84,7 +83,7 @@ export default function Header() {
     },
     { 
       href: '/nghien-cuu', 
-      label: 'Dành cho nhà nghiên cứu', 
+      label: 'nghiên cứu', 
       icon: GraduationCap,
       dropdown: [
         { href: '/nghien-cuu/tai-lieu', label: 'Tài liệu', icon: Package },
@@ -94,7 +93,7 @@ export default function Header() {
     },
     { 
       href: '/doanh-nghiep', 
-      label: 'Dành cho doanh nghiệp', 
+      label: 'doanh nghiệp', 
       icon: Building2,
       dropdown: [
         { href: '/doanh-nghiep/giai-phap', label: 'Giải pháp', icon: Package },
@@ -110,15 +109,16 @@ export default function Header() {
     <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] max-w-8xl">
       <nav className="relative bg-background/95 backdrop-blur-md border-2 border-border rounded-2xl px-4 py-3 shadow-border-md hover:shadow-border-lg transition-all duration-300">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-md group-hover:blur-xl transition-all duration-300"></div>
-              <IconButton 
-                icon={<Leaf size={22} />} 
-                variant="primary"
-                size="sm"
-                className="relative transition-transform group-hover:scale-110 group-hover:rotate-12"
+          {/* Logo - Sử dụng hình ảnh */}
+          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+            <div className="relative w-10 h-10">
+              <Image
+                src="/images/logo.png"
+                alt="VietGreen Logo"
+                width={40}
+                height={40}
+                className="relative object-contain transition-transform duration-300"
+                priority
               />
             </div>
             <span className="text-xl font-bold text-primary hidden sm:block">
