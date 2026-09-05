@@ -31,10 +31,10 @@ export default function MobileDropdown({
   return (
     <div>
       <div
-        className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-3 border-2 cursor-pointer ${
+        className={`px-4 py-2.5 rounded-xl transition-all duration-300 flex border-border items-center gap-3 border-2 cursor-pointer ${
           isActive(href)
-            ? 'bg-primary/20 text-primary border-primary/30 shadow-primary-sm'
-            : 'border-transparent text-foreground/70 hover:bg-primary/10 hover:border-primary/20 hover:text-primary'
+            ? 'bg-primary/20 text-primary shadow-primary-sm'
+            : 'border-transparent text-foreground/70 hover:bg-primary/10 hover:text-primary'
         }`}
         onClick={() => {
           if (hasDropdown) {
@@ -56,7 +56,7 @@ export default function MobileDropdown({
       
       {/* Mobile Dropdown */}
       {hasDropdown && isOpen && (
-        <div className="ml-6 mt-1 space-y-1 border-l-2 border-primary/20 pl-4">
+        <div className="ml-6 mt-1 space-y-1 border-l-2 border-border pl-4">
           {dropdown.map((item) => {
             const isItemActive = isActive(item.href)
             return (

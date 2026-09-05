@@ -86,7 +86,7 @@ export default function NavItem({
         className={`px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 text-sm border-2 ${
           isActive(href)
             ? 'bg-primary/20 text-primary border-border shadow-primary-sm'
-            : 'border-transparent text-foreground/70 hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
+            : 'border-transparent text-foreground hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
         }`}
       >
         <span className="whitespace-nowrap">{label}</span>

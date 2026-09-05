@@ -105,9 +105,8 @@ export default function Chatbot() {
         >
           <div className="relative">
             <div className="absolute inset-0 bg-primary/30 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300 animate-pulse"></div>
-            <div className="relative w-14 h-14 bg-gradient-to-r from-primary to-[#6aa34a] rounded-full flex items-center justify-center shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-110">
+            <div className="relative w-14 h-14 bg-gradient-to-r from-primary to-background rounded-full flex items-center justify-center shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:scale-110">
               <Bot size={28} className="text-white" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-background animate-pulse"></span>
             </div>
           </div>
         </button>
@@ -116,16 +115,15 @@ export default function Chatbot() {
       {/* Chatbot Window - Hiển thị khi mở */}
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-2rem)]">
-          <div className="bg-background/95 backdrop-blur-md border-2 border-primary/30 rounded-2xl shadow-2xl overflow-hidden h-[500px] max-h-[80vh] flex flex-col">
+          <div className="bg-background  border-2 border-border rounded-2xl shadow-2xl overflow-hidden h-[500px] max-h-[80vh] flex flex-col">
             
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary/10 to-primary/5 border-b border-primary/20 flex-shrink-0">
+            <div className="flex items-center justify-between px-4 py-3 bg-background border-b border-border flex-shrink-0">
               <div className="flex items-center gap-2">
                 <div className="relative">
                   <div className="w-8 h-8  rounded-full flex items-center justify-center">
                     <Sparkles size={20} className="text-primary" />
                   </div>
-                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border border-background animate-pulse"></span>
                 </div>
                 <div>
                   <h3 className="font-semibold text-sm">VietGreen AI</h3>
@@ -170,7 +168,7 @@ export default function Chatbot() {
                     <div className={`px-4 py-2.5 rounded-2xl ${
                       message.type === 'user'
                         ? 'bg-primary text-primary-foreground rounded-tr-none'
-                        : 'bg-background border border-primary/20 text-foreground rounded-tl-none'
+                        : 'bg-background border-2 border-border text-foreground rounded-tl-none'
                     }`}>
                       <p className="text-sm whitespace-pre-wrap">{message.content}</p>
                     </div>
@@ -201,7 +199,7 @@ export default function Chatbot() {
             </div>
 
             {/* Input */}
-            <div className="p-3 border-t border-primary/20 bg-background/50 flex-shrink-0">
+            <div className="p-3 border-t border-border bg-background/50 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <div className="flex-1 relative">
                   <input
@@ -211,17 +209,18 @@ export default function Chatbot() {
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Nhập tin nhắn..."
-                    className="w-full px-4 py-2.5 bg-background border-2 border-border rounded-xl focus:border-primary focus:outline-none transition-all text-sm"
+                    className="w-full px-4 py-2.5 bg-background border-2 border-border rounded-xl focus:outline-none transition-all text-sm"
                   />
                 </div>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  icon={<ArrowBigRight  className="text-foreground" size={18} />}
+                <IconButton 
+              icon={<ArrowBigRight size={16}/>}
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim()}
+              variant="primary"
+              size="sm"
                   className="flex-shrink-0 h-11 w-11 rounded-xl"
-                />
+            />
+
               </div>
             </div>
           </div>

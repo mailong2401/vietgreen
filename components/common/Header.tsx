@@ -73,7 +73,7 @@ export default function Header() {
     },
     { 
       href: '/khach-hang', 
-      label: 'khách hàng', 
+      label: 'Khách hàng', 
       icon: UserCircle,
       dropdown: [
         { href: '/khach-hang/san-pham', label: 'Sản phẩm', icon: Package },
@@ -83,7 +83,7 @@ export default function Header() {
     },
     { 
       href: '/nghien-cuu', 
-      label: 'nghiên cứu', 
+      label: 'Nghiên cứu', 
       icon: GraduationCap,
       dropdown: [
         { href: '/nghien-cuu/tai-lieu', label: 'Tài liệu'  },
@@ -93,7 +93,7 @@ export default function Header() {
     },
     { 
       href: '/doanh-nghiep', 
-      label: 'doanh nghiệp', 
+      label: 'Doanh nghiệp', 
       icon: Building2,
       dropdown: [
         { href: '/doanh-nghiep/giai-phap', label: 'Giải pháp', icon: Package },
@@ -184,7 +184,7 @@ export default function Header() {
 
         {/* Mobile Menu - Sử dụng MobileDropdown component */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-primary/20 rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
+          <div className="lg:hidden absolute top-full left-0 right-0 mt-2 bg-background/98 backdrop-blur-md border-2 border-border rounded-2xl p-4 shadow-border-md max-h-[80vh] overflow-y-auto">
             <div className="flex flex-col gap-1">
               {/* Main nav links with dropdown on mobile */}
               {navLinks.map((link) => (
