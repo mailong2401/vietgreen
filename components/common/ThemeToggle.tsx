@@ -20,8 +20,10 @@ export default function ThemeToggle() {
     const nextTheme = isDark ? 'light' : 'dark'
     const button = buttonRef.current
 
-    // @ts-expect-error
-    if (!button || !document.startViewTransition) {
+    const supportsViewTransition =
+      typeof document !== 'undefined' && 'startViewTransition' in document
+
+    if (!button || !supportsViewTransition) {
       setTheme(nextTheme)
       return
     }
@@ -40,7 +42,7 @@ export default function ThemeToggle() {
       Math.max(y, window.innerHeight - y)
     )
 
-    const transition = document.startViewTransition(() => {
+    const transition = (document as any).startViewTransition(() => {
       flushSync(() => {
         document.documentElement.classList.add('theme-transitioning')
         setTheme(nextTheme)
