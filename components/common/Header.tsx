@@ -4,28 +4,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { useTheme } from 'next-themes'
-import { 
-  Menu, 
-  X, 
-  Users, 
-  Settings, 
-  LogOut,
+import {
+  Menu,
+  X,
   Moon,
   Sun,
   Search,
   Briefcase,
-  GraduationCap,
   Building2,
-  MapPin,
-  Eye,
-  Target,
-  Package,
   UserCircle,
-  TreePine,
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import IconButton from '@/components/ui/IconButton'
 import NavItem from '@/components/common/NavItem'
+import ThemeToggle from '@/components/common/ThemeToggle'
 import MobileDropdown from '@/components/ui/MobileDropdown'
 
 export default function Header() {
@@ -51,57 +43,56 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { 
-      href: '/ve-chung-toi', 
-      label: 'Về VietGreen', 
-      icon: TreePine,
+    {
+      href: '/',
+      label: 'Trang chủ',
+    },
+    {
+      href: '/chi-so-xanh',
+      label: 'Chỉ số Xanh',
       dropdown: [
-        { href: '/ve-chung-toi/tam-nhin', label: 'Tầm nhìn sứ mệnh', icon: Target },
-        { href: '/ve-chung-toi/doi-ngu', label: 'Đội ngũ', icon: Users },
-        { href: '/ve-chung-toi/lich-su', label: 'Lịch sử phát triển', icon: Settings },
+        { href: '/chi-so-xanh/vgpi', label: 'Chỉ số VGPI (Sản xuất Xanh)' },
+        { href: '/chi-so-xanh/vgci', label: 'Chỉ số VGCI (Tiêu dùng Xanh)' },
+        { href: '/chi-so-xanh/benchmarking', label: 'Đối sánh Ngành (Benchmarking)' },
       ]
     },
-    { 
-      href: '/tuyen-dung', 
-      label: 'Tuyển dụng', 
-      icon: Users,
+    {
+      href: '/ho-chieu-xanh',
+      label: 'Hộ chiếu Sản phẩm',
       dropdown: [
-        { href: '/tuyen-dung/viec-lam', label: 'Việc làm', icon: Briefcase },
-        { href: '/tuyen-dung/thuc-tap', label: 'Thực tập', icon: GraduationCap },
-        { href: '/tuyen-dung/ung-tuyen', label: 'Ứng tuyển', icon: UserCircle },
+        { href: '/ho-chieu-xanh/tra-cuu', label: 'Tra cứu Mã QR Sản phẩm' },
+        { href: '/ho-chieu-xanh/danh-muc', label: 'Danh mục Nhãn sinh thái' },
+        { href: '/ho-chieu-xanh/dang-ky', label: 'Đăng ký Cấp Hộ chiếu Xanh' },
       ]
     },
-    { 
-      href: '/khach-hang', 
-      label: 'Khách hàng', 
-      icon: UserCircle,
+    {
+      href: '/kiem-duyet-esg',
+      label: 'Minh bạch ESG',
       dropdown: [
-        { href: '/khach-hang/san-pham', label: 'Sản phẩm', icon: Package },
-        { href: '/khach-hang/dich-vu', label: 'Dịch vụ', icon: Settings },
-        { href: '/khach-hang/ho-tro', label: 'Hỗ trợ', icon: MapPin },
+        { href: '/kiem-duyet-esg/greenwashing-detector', label: 'Phát hiện Rủi ro Greenwashing' },
+        { href: '/kiem-duyet-esg/bao-cao-doanh-nghiep', label: 'Báo cáo ESG Doanh nghiệp' },
+        { href: '/kiem-duyet-esg/tri-thuc-chuoi-cung-ung', label: 'Đồ thị Chuỗi cung ứng (Graph)' },
       ]
     },
-    { 
-      href: '/nghien-cuu', 
-      label: 'Nghiên cứu', 
-      icon: GraduationCap,
+    {
+      href: '/danh-cho-doanh-nghiep',
+      label: 'Doanh nghiệp',
       dropdown: [
-        { href: '/nghien-cuu/tai-lieu', label: 'Tài liệu'  },
-        { href: '/nghien-cuu/du-an', label: 'Dự án'  },
-        { href: '/nghien-cuu/hop-tac', label: 'Hợp tác'  },
+        { href: '/danh-cho-doanh-nghiep/ho-so-xanh', label: 'Quản trị Hồ sơ Xanh (Self-Audit)' },
+        { href: '/danh-cho-doanh-nghiep/tin-dung-xanh', label: 'Hồ sơ Vay Tín dụng Xanh' },
+        { href: '/danh-cho-doanh-nghiep/tieu-chuan-xuat-khau', label: 'Tuân thủ Thị trường (CBAM/EUDR)' },
       ]
     },
-    { 
-      href: '/doanh-nghiep', 
-      label: 'Doanh nghiệp', 
-      icon: Building2,
+    {
+      href: '/nghien-cuu-du-lieu',
+      label: 'Thư viện & Dữ liệu',
       dropdown: [
-        { href: '/doanh-nghiep/giai-phap', label: 'Giải pháp', icon: Package },
-        { href: '/doanh-nghiep/doi-tac', label: 'Đối tác', icon: Users },
-        { href: '/doanh-nghiep/du-an', label: 'Dự án', icon: Target },
+        { href: '/nghien-cuu-du-lieu/trung-tam-tin-tuc', label: 'Tin tức & Chính sách Môi trường' },
+        { href: '/nghien-cuu-du-lieu/bao-cao-thi-truong', label: 'Báo cáo Thị trường Carbon' },
+        { href: '/nghien-cuu-du-lieu/tai-lieu-api', label: 'Tài liệu Tích hợp API (Data)' },
       ]
     },
-  ]
+  ];
 
   if (!mounted) return null
 
@@ -144,25 +135,19 @@ export default function Header() {
           {/* Right Actions */}
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {/* Search Button */}
-            <IconButton 
-              icon={<Search size={18} />} 
-              variant="ghost"
-              size="sm"
-              className="text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
-            />
-            
-            {/* Theme Toggle */}
-            <IconButton 
-              icon={theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            <IconButton
+              icon={<Search size={18} />}
               variant="ghost"
               size="sm"
               className="text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
             />
 
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Login Button */}
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               size="sm"
               icon={<UserCircle size={16} />}
               iconPosition="left"
@@ -172,7 +157,7 @@ export default function Header() {
             </Button>
 
             {/* Mobile Menu Toggle */}
-            <IconButton 
+            <IconButton
               icon={isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               variant="ghost"
@@ -196,9 +181,9 @@ export default function Header() {
                   onClose={() => setIsMobileMenuOpen(false)}
                 />
               ))}
-              
+
               <div className="border-t border-border/50 my-2"></div>
-              
+
               {/* Mobile Theme Toggle */}
               <button
                 onClick={() => {
@@ -209,11 +194,11 @@ export default function Header() {
                 {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                 <span>{theme === 'dark' ? 'Chế độ sáng' : 'Chế độ tối'}</span>
               </button>
-              
+
               {/* Mobile Login Button */}
-              <Button 
-                variant="primary" 
-                size="md" 
+              <Button
+                variant="primary"
+                size="md"
                 className="w-full justify-center mt-1 shadow-border-sm hover:shadow-border-md hover:scale-[1.02] transition-all"
                 icon={<UserCircle size={18} />}
                 iconPosition="left"

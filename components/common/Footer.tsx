@@ -2,11 +2,11 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { 
-  Leaf, 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Leaf,
+  Mail,
+  Phone,
+  MapPin,
   Send,
   ChevronRight,
   Sparkles,
@@ -16,12 +16,12 @@ import {
   Building2,
   GraduationCap
 } from 'lucide-react'
-import { 
-  FaFacebook, 
-  FaYoutube, 
-  FaXTwitter, 
-  FaLinkedin, 
-  FaInstagram 
+import {
+  FaFacebook,
+  FaYoutube,
+  FaXTwitter,
+  FaLinkedin,
+  FaInstagram
 } from 'react-icons/fa6'
 import Button from '@/components/ui/Button'
 import IconButton from '@/components/ui/IconButton'
@@ -45,13 +45,13 @@ export default function Footer() {
     { href: '/faq', label: 'Câu hỏi thường gặp' },
   ]
 
-const socialLinks = [
-  { icon: FaFacebook, href: 'https://facebook.com', label: 'Facebook' },
-  { icon: FaYoutube, href: 'https://youtube.com', label: 'Youtube' },
-  { icon: FaXTwitter, href: 'https://twitter.com', label: 'Twitter / X' },
-  { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
-]
+  const socialLinks = [
+    { icon: FaFacebook, href: 'https://facebook.com', label: 'Facebook' },
+    { icon: FaYoutube, href: 'https://youtube.com', label: 'Youtube' },
+    { icon: FaXTwitter, href: 'https://twitter.com', label: 'Twitter / X' },
+    { icon: FaLinkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: FaInstagram, href: 'https://instagram.com', label: 'Instagram' },
+  ]
 
   return (
     <footer className="relative bg-gradient-to-b from-background to-primary/5 border-t-2 border-primary/20 pt-16 pb-6 mt-20">
@@ -62,7 +62,7 @@ const socialLinks = [
 
       <div className="container mx-auto max-w-7xl px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          
+
           {/* Column 1 - Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 group">
@@ -81,7 +81,7 @@ const socialLinks = [
             </Link>
 
             <p className="text-sm text-foreground/60 leading-relaxed">
-              Nền tảng Data & AI quy mô quốc gia về sản xuất xanh 
+              Nền tảng Data & AI quy mô quốc gia về sản xuất xanh
               và tiêu dùng bền vững tại Việt Nam.
             </p>
 
@@ -157,7 +157,7 @@ const socialLinks = [
               <span className="w-1 h-5 bg-primary rounded-full"></span>
               Liên hệ
             </h3>
-            
+
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-sm text-foreground/60">
                 <MapPin size={16} className="text-primary flex-shrink-0 mt-0.5" />
@@ -203,9 +203,9 @@ const socialLinks = [
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-primary/10">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-6 text-xs text-foreground/40">
+        <div className="mt-12 pt-6 border-t border-borderflex flex-col items-center justify-center text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-foreground/40">
               <span>© {currentYear} VietGreen</span>
               <span className="hidden sm:inline">|</span>
               <Link href="/privacy" className="hover:text-primary transition-colors">
@@ -214,12 +214,6 @@ const socialLinks = [
               <Link href="/terms" className="hover:text-primary transition-colors">
                 Điều khoản sử dụng
               </Link>
-            </div>
-            
-            <div className="flex items-center gap-2 text-xs text-foreground/40">
-              <span>🌱</span>
-              <span>Xây dựng tương lai xanh</span>
-              <span className="animate-pulse">💚</span>
             </div>
           </div>
         </div>
