@@ -1,11 +1,12 @@
 'use client'
 
-import { 
+import {
   HeroSection,
   ProblemsSection,
   TargetUsers,
   CoreModules,
   Architecture,
+  TrustedPartners,
   CTASection
 } from '@/components/sections'
 
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ProblemsSection />
       <TargetUsers />
       <CoreModules />
+      <TrustedPartners />
       <Architecture />
       <CTASection />
     </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { BarChart3, Package, Users, Shield, Network, Bot } from 'lucide-react'
+import ScrollAnimation from '@/components/ui/ScrollAnimation'
 
 const modules = [
   {
@@ -45,30 +46,36 @@ export default function CoreModules() {
   return (
     <section className="py-16 px-4 bg-background/50">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Sáu module cốt lõi</h2>
-          <p className="text-foreground/60 max-w-2xl mx-auto">
-            Hệ thống module tích hợp tạo nên nền tảng dữ liệu toàn diện
-          </p>
-        </div>
-        
+        <ScrollAnimation direction="up" duration={0.6}>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Sáu module cốt lõi</h2>
+            <p className="text-foreground/60 max-w-2xl mx-auto">
+              Hệ thống module tích hợp tạo nên nền tảng dữ liệu toàn diện
+            </p>
+          </div>
+        </ScrollAnimation>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {modules.map((module, index) => {
             const Icon = module.icon
             return (
-              <div 
+              <ScrollAnimation
                 key={index}
-                className="bg-background border-2 border-border rounded-2xl p-6 shadow-border-sm hover:shadow-border-lg transition-all group"
+                direction="up"
+                duration={0.5}
+                delay={index * 0.1}
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Icon size={24} className="text-primary" />
+                <div className="bg-background border-2 border-border rounded-2xl p-6 shadow-border-sm hover:shadow-border-lg transition-all group">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <Icon size={24} className="text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">{module.title}</h3>
+                  <p className="text-sm text-foreground/60 mb-3">{module.description}</p>
+                  <div className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
+                    {module.tag}
+                  </div>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">{module.title}</h3>
-                <p className="text-sm text-foreground/60 mb-3">{module.description}</p>
-                <div className="inline-block bg-primary/10 text-primary text-xs font-medium px-3 py-1 rounded-full">
-                  {module.tag}
-                </div>
-              </div>
+              </ScrollAnimation>
             )
           })}
         </div>

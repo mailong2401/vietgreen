@@ -76,7 +76,7 @@ export default function Button({
       ' hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-md',
       'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none'
     ].join(' '),
-    
+
     secondary: [
       'bg-secondary text-foreground',
       'border-2 border-foreground',
@@ -84,15 +84,15 @@ export default function Button({
       'hover:bg-[#4a5060] hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-md',
       'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none'
     ].join(' '),
-    
+
     outline: [
-      'bg-transparent text-primary',
-      'border-2 border-primary',
+      'bg-transparent text-foreground',
+      'border-2 border-border',
       'shadow-border-sm',
-      'hover:bg-primary hover:text-background hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-sm',
+      ' hover:text-foreground hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-border-sm',
       'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none'
     ].join(' '),
-    
+
     ghost: [
       'bg-transparent text-foreground',
       'border-2 border-transparent',
@@ -107,7 +107,7 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'rounded-full font-medium transition-all duration-200 flex items-center justify-center gap-2 relative',
+        'rounded-full font-medium transition-all duration-200 flex items-center justify-center gap-2 relative cursor-pointer',
         sizeClasses[size],
         variantClasses[variant],
         animated && 'hover:scale-105 active:scale-95',
@@ -126,7 +126,7 @@ export default function Button({
         )}
       </span>
       {icon && iconPosition === 'right' && icon}
-      
+
       {/* Playful decoration - dots */}
       {variant === 'playful' && !disabled && (
         <>

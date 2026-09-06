@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Header />
-          <main className="min-h-screen">
+          <main className="min-h-screen pt-24">
             {children}
           </main>
           <Chatbot />

@@ -86,9 +86,9 @@ export default function ThemeToggle() {
       className="text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all"
       icon={
         isDark ? (
-          <Sun size={18} className="text-yellow-400" />
+          <Moon size={18} className="text-foreground" />
         ) : (
-          <Moon size={18} className="text-indigo-400" />
+          <Sun size={18} className="text-foreground" />
         )
       }
     />

@@ -48,12 +48,12 @@ export default function Header() {
       label: 'Trang chủ',
     },
     {
-      href: '/chi-so-xanh',
+      href: '/green-index',
       label: 'Chỉ số Xanh',
       dropdown: [
-        { href: '/chi-so-xanh/vgpi', label: 'Chỉ số VGPI (Sản xuất Xanh)' },
-        { href: '/chi-so-xanh/vgci', label: 'Chỉ số VGCI (Tiêu dùng Xanh)' },
-        { href: '/chi-so-xanh/benchmarking', label: 'Đối sánh Ngành (Benchmarking)' },
+        { href: '/green-index/vgpi', label: 'Chỉ số VGPI (Sản xuất Xanh)' },
+        { href: '/green-index/vgci', label: 'Chỉ số VGCI (Tiêu dùng Xanh)' },
+        { href: '/green-index/benchmarking', label: 'Đối sánh Ngành (Benchmarking)' },
       ]
     },
     {
@@ -133,7 +133,7 @@ export default function Header() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+          <div className="flex items-center gap-2.5 flex-shrink-0">
             {/* Search Button */}
             <IconButton
               icon={<Search size={18} />}
@@ -146,15 +146,29 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Login Button */}
-            <Button
-              variant="primary"
-              size="sm"
-              icon={<UserCircle size={16} />}
-              iconPosition="left"
-              className="hover:scale-105 transition-transform text-sm px-4 py-1.5"
-            >
-              Đăng nhập
-            </Button>
+            <Link href="/sign-in">
+              <Button
+                variant="primary"
+                size="sm"
+                icon={<UserCircle size={16} />}
+                iconPosition="left"
+                className="hover:scale-105 transition-transform text-sm px-4 py-1.5"
+              >
+                Đăng nhập
+              </Button>
+            </Link>
+
+            <Link href="/sign-up">
+              <Button
+                variant="outline"
+                size="sm"
+                icon={<UserCircle size={16} />}
+                iconPosition="left"
+                className="hover:scale-105 transition-transform text-sm px-4 py-1.5"
+              >
+                Đăng Ký
+              </Button>
+            </Link>
 
             {/* Mobile Menu Toggle */}
             <IconButton

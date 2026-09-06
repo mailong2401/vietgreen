@@ -32,8 +32,20 @@ export default function NavItem({
   const [isHovering, setIsHovering] = useState(false)
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const openTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  
-  const isActive = (path: string) => pathname === path
+
+  // Kiểm tra active cho cả link cha và link con
+  const isActive = (path: string) => {
+    // Nếu là link cha: active khi đang ở chính trang đó
+    if (pathname === path) return true
+
+    // Nếu có dropdown: active khi đang ở bất kỳ link con nào
+    if (dropdown) {
+      return dropdown.some(item => pathname === item.href)
+    }
+
+    return false
+  }
+
   const hasDropdown = dropdown && dropdown.length > 0
 
   // Clear all timeouts
@@ -55,7 +67,7 @@ export default function NavItem({
     if (hasDropdown) {
       openTimeoutRef.current = setTimeout(() => {
         onOpen()
-      }, 100) // Delay 200ms before opening
+      }, 100)
     }
   }
 
@@ -66,7 +78,7 @@ export default function NavItem({
     if (hasDropdown) {
       closeTimeoutRef.current = setTimeout(() => {
         onClose()
-      }, 100) // Delay 300ms before closing
+      }, 100)
     }
   }
 
@@ -74,6 +86,8 @@ export default function NavItem({
   useEffect(() => {
     return () => clearTimeouts()
   }, [])
+
+  const isLinkActive = isActive(href)
 
   return (
     <div
@@ -83,16 +97,15 @@ export default function NavItem({
     >
       <Link
         href={href}
-        className={`px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 text-sm border-2 ${
-          isActive(href)
+        className={`px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 text-sm border-2 ${isLinkActive
             ? 'bg-primary/20 text-primary border-border shadow-primary-sm'
             : 'border-transparent text-foreground hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
-        }`}
+          }`}
       >
         <span className="whitespace-nowrap">{label}</span>
         {hasDropdown && (
-          <ChevronDown 
-            size={14} 
+          <ChevronDown
+            size={14}
             className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
           />
         )}
@@ -114,10 +127,11 @@ export default function NavItem({
             }, 300)
           }}
         >
-          <DropdownMenu 
-            items={dropdown} 
-            isOpen={isOpen} 
+          <DropdownMenu
+            items={dropdown}
+            isOpen={isOpen}
             onClose={onClose}
+            parentHref={href}
           />
         </div>
       )}
