@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useRef, useEffect, useState } from 'react'
-import { motion, useInView, useAnimation } from 'framer-motion'
+import { motion, useInView, useAnimation, Variants } from 'framer-motion'
 
 interface ScrollAnimationProps {
   children: ReactNode
@@ -55,7 +55,7 @@ export default function ScrollAnimation({
     }
   }
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       ...getDirection(),

@@ -33,12 +33,8 @@ export default function NavItem({
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const openTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  // Kiểm tra active cho cả link cha và link con
   const isActive = (path: string) => {
-    // Nếu là link cha: active khi đang ở chính trang đó
     if (pathname === path) return true
-
-    // Nếu có dropdown: active khi đang ở bất kỳ link con nào
     if (dropdown) {
       return dropdown.some(item => pathname === item.href)
     }
@@ -98,8 +94,8 @@ export default function NavItem({
       <Link
         href={href}
         className={`px-3 py-1.5 rounded-full transition-all duration-300 flex items-center gap-1.5 text-sm border-2 ${isLinkActive
-            ? 'bg-primary/20 text-primary border-border shadow-primary-sm'
-            : 'border-transparent text-foreground hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
+          ? 'bg-primary/20 text-primary border-border shadow-primary-sm'
+          : 'border-transparent text-foreground hover:bg-primary/10 hover:border-border hover:text-primary hover:shadow-primary-sm'
           }`}
       >
         <span className="whitespace-nowrap">{label}</span>
@@ -131,7 +127,6 @@ export default function NavItem({
             items={dropdown}
             isOpen={isOpen}
             onClose={onClose}
-            parentHref={href}
           />
         </div>
       )}
