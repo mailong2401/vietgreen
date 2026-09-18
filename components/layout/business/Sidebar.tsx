@@ -23,9 +23,6 @@ import {
   Download,
   Settings,
   ChevronsDownUp,
-  Sparkles,
-  ChevronDown,
-  ChevronRight
 } from 'lucide-react'
 
 interface MenuItem {
@@ -45,7 +42,7 @@ const menuSections: MenuSection[] = [
   {
     title: '',
     items: [
-      { href: '/business/', label: 'Organization', icon: Building2 },
+      { href: '/business', label: 'Organization', icon: Building2 },
       { href: '/business/facilities', label: 'Facilities & Branches', icon: Factory },
     ]
   },
@@ -104,9 +101,9 @@ export default function Sidebar() {
   const isActive = (href: string) => pathname === href
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-72 bg-background border-r border-border flex flex-col z-40">
+    <aside className="fixed left-0 top-0 h-screen w-72 bg-background border-r border-border/5 shadow-sm flex flex-col z-40">
       {/* Logo */}
-      <div className="p-4 border-b border-border">
+      <div className="p-4 ">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 flex-shrink-0">
             <Image
@@ -130,7 +127,7 @@ export default function Sidebar() {
       </div>
 
       {/* Search */}
-      <div className="p-3 border-b border-border">
+      <div className="p-3 ">
         <div className="relative">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/40" />
           <input
@@ -138,7 +135,7 @@ export default function Sidebar() {
             placeholder="Jump to screen..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-14 py-2 text-sm bg-secondary/50 border border-border rounded-lg focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/20 transition-all"
+            className="w-full pl-9 pr-14 py-2 text-sm bg-secondary/50 focus:outline-none shadow-sm transition-all"
           />
           <kbd className="absolute right-2 top-1/2 -translate-y-1/2 px-2 py-0.5 text-[10px] bg-background border border-border rounded text-foreground/50">
             Ctrl K
@@ -163,7 +160,7 @@ export default function Sidebar() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${active
+                      className={`relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all duration-200 group ${active
                         ? 'bg-primary text-primary-foreground font-medium shadow-sm'
                         : 'text-foreground/70 hover:bg-secondary hover:text-foreground'
                         }`}
@@ -177,6 +174,7 @@ export default function Sidebar() {
                         </span>
                       )}
                     </Link>
+
                   </li>
                 )
               })}
