@@ -169,9 +169,9 @@ function KpiCard({ data, index }: { data: typeof KPI_DATA[0]; index: number }) {
         </div>
 
         <div className="flex items-baseline gap-2 mb-2">
-          <p ref={ref} className={`text-4xl font-bold ${data.valueColor} tabular-nums`}>
+          <span ref={ref} className={`text-4xl font-bold ${data.valueColor} tabular-nums block`}>
             {displayValue}
-          </p>
+          </span>
           {data.suffix && <span className="text-sm text-gray-400">{data.suffix}</span>}
           {data.badge && (
             <span className={`text-xs font-semibold px-1.5 py-0.5 rounded ${data.badgeColor}`}>
