@@ -1,17 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  ArrowRight,
   BarChart3,
   Building2,
-  Calendar,
   CheckCircle,
   ChevronRight,
   Droplets,
   Factory,
-  Leaf,
   Recycle,
   Sparkles,
   Database,
@@ -22,18 +17,9 @@ import {
   Zap,
   Globe,
   Award,
-  Shield,
   Users
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import {
-  HeroSection,
-  ProblemsSection,
-  TargetUsers,
-  CoreModules,
-  Architecture,
-  CTASection
-} from '@/components/sections'
 
 export default function VGPIPage() {
   return (

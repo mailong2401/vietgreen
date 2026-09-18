@@ -1,12 +1,10 @@
 'use client'
 
-import Link from 'next/link'
 import {
   Search,
   Bell,
   Calendar,
   TrendingDown,
-  ArrowUpRight,
   Sparkles,
   Info,
   Award,

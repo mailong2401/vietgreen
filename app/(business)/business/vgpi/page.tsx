@@ -1,9 +1,5 @@
-'use client'
-
 import {
-  Leaf,
   TrendingUp,
-  TrendingDown,
   Award,
   Target,
   Zap,
