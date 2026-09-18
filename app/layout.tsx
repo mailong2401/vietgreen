@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
-import Header from '@/components/common/Header'
-import Footer from '@/components/common/Footer'
-import Chatbot from '@/components/ui/Chatbot'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,12 +19,7 @@ export default function RootLayout({
     <html lang="vi" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <Header />
-          <main className="min-h-screen pt-24">
-            {children}
-          </main>
-          <Chatbot />
-          <Footer />
+          {children}
         </Providers>
       </body>
     </html>

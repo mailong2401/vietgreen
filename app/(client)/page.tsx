@@ -5,7 +5,6 @@ import {
   ProblemsSection,
   TargetUsers,
   CoreModules,
-  Architecture,
   TrustedPartners,
   CTASection
 } from '@/components/sections'
@@ -18,7 +17,6 @@ export default function HomePage() {
       <TargetUsers />
       <CoreModules />
       <TrustedPartners />
-      <Architecture />
       <CTASection />
     </div>
   )
