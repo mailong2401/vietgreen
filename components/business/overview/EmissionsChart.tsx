@@ -2,7 +2,7 @@ import { Zap, Droplets, DollarSign } from 'lucide-react';
 
 export default function EmissionsChart() {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+    <div className="bg-background rounded-2xl p-6 shadow-sm border border-gray-100">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
         <div>

@@ -8,11 +8,13 @@ export default function ForBusinessLayout({
   children: ReactNode
 }) {
   return (
-    <div className="flex min-h-screen">
+    <div className="min-h-screen">
       <Sidebar />
-      <div className="flex-1 ml-72">
-        <main className="min-h-screen">
+      <div className="lg:ml-72 min-h-screen flex flex-col">
+        <div className="pt-14 lg:pt-0">
           <TopNavigationBar />
+        </div>
+        <main className="flex-1">
           {children}
         </main>
       </div>
